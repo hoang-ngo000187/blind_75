@@ -3,7 +3,6 @@ class Solution:
         if t == "":
             return ""
         
-        minW = s
         LenS = len(s)
         countT, window = {}, {}
 
@@ -40,6 +39,4 @@ if __name__ == '__main__':
     sol = Solution()
     s = "ADOBECODEBANC"
     t = "ABC"
-    # s = "ADAOBBBECODEBANC" 
-    # t = "AABBC" # Output: "BANC"
     print(sol.minWindow(s, t))
