@@ -23,20 +23,25 @@ def print_linked_list(head):
         head = head.next
     print("None")
 
+HASH_MAP = 0
 # Problem code
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        hash_map = {}
-        p = head
-        ret = None
-        while p != None:
-            if p in hash_map:
-                ret = p
-                break
-            else:
-                hash_map[p] = 1
-                p = p.next
-        return ret
+        if HASH_MAP:
+            hash_map = {}
+            p = head
+            ret = None
+            while p != None:
+                if p in hash_map:
+                    ret = p
+                    break
+                else:
+                    hash_map[p] = 1
+                    p = p.next
+            return ret
+        else:
+            # First
+            
 
 # if __name__ == '__main__':
     # head = create_linked_list([1, 2, 3, 4, 5])
