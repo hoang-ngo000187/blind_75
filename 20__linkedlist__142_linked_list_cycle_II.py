@@ -40,7 +40,22 @@ class Solution:
                     p = p.next
             return ret
         else:
-            # First
+            def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+                # First, find the meeting point
+                fast = slow = head
+                while fast and fast.next:
+                    fast = (fast.next).next
+                    slow = slow.next
+
+                    if fast == slow: # Fast is in meeting point
+                        # Move slow to head, start slow from the head, fast from the meeting point with the same speed
+                        slow = head
+                        while fast != slow:
+                            fast = fast.next
+                            slow = slow.next
+                        return slow
+                # If no cycle is detected, return None
+                return None
             
 
 # if __name__ == '__main__':
